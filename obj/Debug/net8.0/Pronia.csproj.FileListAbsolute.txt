@@ -140,3 +140,4 @@ C:\Users\user\source\repos\Pronia\bin\Debug\net8.0\runtimes\win\lib\net6.0\Syste
 C:\Users\user\source\repos\Pronia\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\user\source\repos\Pronia\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\user\source\repos\Pronia\obj\Debug\net8.0\Pronia.csproj.Up2Date
+C:\Users\user\source\repos\Pronia\obj\Debug\net8.0\Pronia.sourcelink.json
