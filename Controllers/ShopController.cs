@@ -13,25 +13,25 @@ namespace Pronia.Controllers
         {
             _context = context;
         }
-        public IActionResult Detail( int? id)
+        public async Task<IActionResult> Detail( int? id)
         {
             if (id is null || id<=0) return BadRequest();
 
-            Product? product=_context.Products
+                 Product? product=await _context.Products
                 .Include(p=>p.ProductImages.OrderByDescending(pi=>pi.IsPrimary))
                 .Include(p=>p.Category)
-                .FirstOrDefault(p=>p.Id==id);
-            if (product is null) return NotFound();
+                .FirstOrDefaultAsync(p=>p.Id==id);
+                if (product is null) return NotFound();
 
 
             DetailVM detailvm= new DetailVM()
             {
                Product = product,
-              RelatedProducts = _context.Products
-          
-                    .Where(p=>p.CategoryId==product.CategoryId &&p.Id!=product.Id)
+              RelatedProducts =await _context.Products
+        
+                    .Where(p=>p.CategoryId==product.CategoryId && p.Id!=product.Id)
                     .Include(p=>p.ProductImages.Where(pi=>pi.IsPrimary!=null))
-                    .ToList()
+                    .ToListAsync()
             };
 
             return View(detailvm);
