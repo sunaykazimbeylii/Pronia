@@ -19,7 +19,7 @@ namespace Pronia
             app.UseStaticFiles();
             app.MapControllerRoute(
                 "Admin",
-                "{area=exsist}/{controller=home}/{action=index}/{Id?}"
+                "{area:exists}/{controller=home}/{action=index}/{Id?}"
 
                 );
             app.MapControllerRoute(

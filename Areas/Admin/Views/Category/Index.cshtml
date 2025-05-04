@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Striped Table</h4>
-                <a class="btn btn-success">Create</a>
+                <a asp-action="create" class="btn btn-success">Create</a>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -51,7 +51,7 @@
                                         @category.CreatedAt.ToString("d MMMM yyy HH:mm")
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning"> <i class="mdi mdi-pencil"></i></a>
+                                        <a asp-action="update" asp-route-id="@category.Id" class="btn btn-warning"> <i class="mdi mdi-pencil"></i></a>
                                         <a class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
                                         <a class="btn btn-primary"><i class="mdi mdi-open-in-new"></i></a>
                                     </td>
