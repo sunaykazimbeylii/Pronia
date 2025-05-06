@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
 using Pronia.Models;
@@ -16,7 +17,7 @@ namespace Pronia.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<Category> categories = await _context.Categories.Include(c=>c.Products)
+            List<Category> categories = await _context.Categories.Where(c=>c.IsDeleted==false).Include(c=>c.Products)
                 .ToListAsync();
             return View(categories);
         }
@@ -74,5 +75,16 @@ namespace Pronia.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
             
         }
-    }
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id is null || id < 1) return BadRequest();
+        Category category =await _context.Categories.FirstOrDefaultAsync(c=>c.Id== id); 
+        if (category is null) return NotFound();
+        //category.IsDeleted = true;
+        _context.Categories.Remove(category);
+         await _context.SaveChangesAsync();
+          return RedirectToAction(nameof(Index));
+        }
 }
+
+    }

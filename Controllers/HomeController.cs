@@ -51,7 +51,7 @@ namespace Pronia.Controllers
             {
                 Slides=await _context.Slides
                 .OrderBy(s=>s.Order)
-                .Take(2)
+                .Take(4)
                 .ToListAsync(),
                 Products=await _context.Products
                 .Take(8)
