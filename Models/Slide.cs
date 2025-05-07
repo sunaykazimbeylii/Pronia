@@ -15,8 +15,6 @@ namespace Pronia.Models
         public string Image{ get; set; }
         [Range(1,int.MaxValue,ErrorMessage ="Order 1den az ola bilmez")]
         public int Order {  get; set; }
-        [NotMapped]
-        public IFormFile Photo {  get; set; }
 
     }
 

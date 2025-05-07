@@ -78,7 +78,7 @@ namespace Pronia.Areas.Admin.Controllers
     public async Task<IActionResult> Delete(int? id)
     {
         if (id is null || id < 1) return BadRequest();
-        Category category =await _context.Categories.FirstOrDefaultAsync(c=>c.Id== id); 
+        Category? category =await _context.Categories.FirstOrDefaultAsync(c=>c.Id== id); 
         if (category is null) return NotFound();
         //category.IsDeleted = true;
         _context.Categories.Remove(category);
