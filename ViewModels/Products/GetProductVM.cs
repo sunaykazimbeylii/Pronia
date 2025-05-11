@@ -1,6 +1,6 @@
 ﻿using Pronia.Models;
 
-namespace Pronia.ViewModels.Products
+namespace Pronia.ViewModels
 {
     public class GetProductVM
     {
