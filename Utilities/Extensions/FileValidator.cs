@@ -1,4 +1,5 @@
-﻿using Pronia.Models;
+﻿using Microsoft.CodeAnalysis.Elfie.Model.Strings;
+using Pronia.Models;
 using Pronia.Utilities.Enums;
 
 namespace Pronia.Utilities.Extensions
@@ -6,6 +7,7 @@ namespace Pronia.Utilities.Extensions
     public static class FileValidator
 
     {
+  
         public static bool ValidateType(this IFormFile file, string type)
         {
             return file.ContentType.Contains(type);
@@ -59,6 +61,7 @@ namespace Pronia.Utilities.Extensions
             }
             return path;
         }
+  
+        }
     }
 
-}

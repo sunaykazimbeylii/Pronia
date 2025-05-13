@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Pronia.ViewModels.Slides
+namespace Pronia.ViewModels
 {
     public class GetSlideVM
     {

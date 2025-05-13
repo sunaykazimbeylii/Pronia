@@ -5,7 +5,6 @@ using Pronia.Models;
 using Pronia.Utilities.Enums;
 using Pronia.Utilities.Extensions;
 using Pronia.ViewModels;
-using Pronia.ViewModels.Slides;
 
 namespace Pronia.Areas.Admin.Controllers
 {
@@ -62,7 +61,7 @@ namespace Pronia.Areas.Admin.Controllers
                 ModelState.AddModelError(nameof(CreateSlideVM.Order), $"{slideVM.Order} This order value already exists");
                 return View();
             }
-           string fileName =   await slideVM.Photo.CreateFileAsync(_env.WebRootPath,"assets","images","website-images");
+            string fileName = await slideVM.Photo.CreateFileAsync(_env.WebRootPath,"assets","images","website-images");
             Slide slide = new Slide
             {
                 Title=slideVM.Title,
