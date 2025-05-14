@@ -125,12 +125,26 @@
                                             </button>
                                             <ul class="dropdown-menu"
                                                 aria-labelledby="settingButton">
+
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item"  asp-controller="Account" asp-action="Logout"> Log out</a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    
                                                 <li>
-                                                    <a class="dropdown-item" href="my-account.html">My account</a>
+                                                    <a class="dropdown-item"  asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path.Value">Log in</a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" href="login-register.html">Login | Register</a>
+                                                    <a class="dropdown-item" asp-controller="Account" asp-action="Register">Register</a>
                                                 </li>
+                                                }
                                             </ul>
                                         </li>
                                         <li class="d-none d-lg-block">
@@ -1253,7 +1267,7 @@
     <!-- JS Files
     ============================================ -->
 
-    <script src="`js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="~/assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="~/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
     <script src="~/assets/js/vendor/jquery.waypoints.js"></script>
